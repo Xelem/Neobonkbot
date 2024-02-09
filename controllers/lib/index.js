@@ -11,19 +11,56 @@ const messages = {
   chat: "Join the disucssion, share bugs and feature requests in our telegram group: https://t.me/BONKbotChat",
 };
 
+const mainMenuKeyboard = {
+  inline_keyboard: [
+    [
+      { text: "Buy", callback_data: "option1" },
+      { text: "Sell & Manage", callback_data: "option2" },
+    ],
+    [
+      { text: "Help", callback_data: "option3" },
+      { text: "Refer Friends", callback_data: "option4" },
+      { text: "Alerts", callback_data: "option4" },
+    ],
+    [
+      { text: "Wallet", callback_data: "option1" },
+      { text: "Settings", callback_data: "option2" },
+    ],
+    [
+      { text: "Pin", callback_data: "option1" },
+      { text: "Refresh", callback_data: "option2" },
+    ],
+  ],
+  resize_keyboard: true,
+};
+
 exports.startFn = bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, messages.start, { parse_mode: "Markdown" });
+
+  bot.sendMessage(chatId, messages.start, {
+    parse_mode: "Markdown",
+    reply_markup: mainMenuKeyboard,
+  });
 });
 
 exports.homeFn = bot.onText(/\/home/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, messages.home, { parse_mode: "Markdown" });
+
+  bot.sendMessage(chatId, messages.home, {
+    parse_mode: "Markdown",
+    reply_markup: mainMenuKeyboard,
+  });
 });
 
 exports.helpFn = bot.onText(/\/help/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, messages.help, { parse_mode: "Markdown" });
+  const menuKeyboard = {
+    inline_keyboard: [[{ text: "Close", callback_data: "option1" }]],
+  };
+  bot.sendMessage(chatId, messages.help, {
+    parse_mode: "Markdown",
+    reply_markup: menuKeyboard,
+  });
 });
 
 exports.chatFn = bot.onText(/\/chat/, (msg) => {
