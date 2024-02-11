@@ -37,7 +37,10 @@ const mainMenuKeyboard = {
 const walletMenuKeyboard = {
   inline_keyboard: [
     [
-      { text: "View on Solscan", url: "solscan" },
+      {
+        text: "View on Solscan",
+        url: "https://solscan.io/account/2WCaM5j9uhpWjy2BiosMBq4XYQicXZK8ys84tSrKeJGk",
+      },
       { text: "Close", callback_data: "close" },
     ],
     [{ text: "Deposit SOL", callback_data: "deposit" }],
