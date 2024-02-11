@@ -106,7 +106,6 @@ bot.on("callback_query", (query) => {
   const chatId = query.message.chat.id;
   const messageId = query.message.message_id;
   const data = query.data;
-  console.log(query);
 
   // Perform actions based on callback data
   switch (data) {
