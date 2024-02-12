@@ -10,6 +10,12 @@ startFn;
 helpFn;
 homeFn;
 
+process.on("uncaughtException", (err) => {
+  console.log(err.name, err.message);
+  console.log("UNCAUGHT EXCEPTION! Shutting down...");
+  process.exit(1);
+});
+
 app.get("*", (req, res) => {
   res.send("Telegram bot running");
 });
